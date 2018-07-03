@@ -1,0 +1,34 @@
+{
+  "name": "watch-exec",
+  "version": "1.0.0",
+  "description": "A filesystem watcher that executes a command when detecting change in given file/directory",
+  "main": "index.js",
+  "bin": {
+    "watch-exec": "./index.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/omarwaleed/watch-exec.git"
+  },
+  "keywords": [
+    "fs",
+    "filesystem",
+    "file",
+    "watcher",
+    "watch",
+    "exec",
+    "execute"
+  ],
+  "author": "Omar Waleed <owezzat@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/omarwaleed/watch-exec/issues"
+  },
+  "homepage": "https://gitlab.com/omarwaleed/watch-exec#README",
+  "dependencies": {
+    "commander": "^2.16.0"
+  }
+}
