@@ -43,6 +43,7 @@ program
 	.alias("r")
 	.description("Start watching and fire command on change of file")
 	.option("-d, --dir <directory>", "Set directory to watch. Defaults to current working directory")
+	.option("-r, --recursive", "Watch the given diretory recursively")
 	// .action((command, dir)=>{
 	.action((command, options)=>{
 		// console.log(options.dir)
