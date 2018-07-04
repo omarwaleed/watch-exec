@@ -61,10 +61,10 @@ program
 				if(event === 'change' && !paused){
 					paused = true;
 					setTimeout(()=>paused = false, 100);
-					console.log("Entered")
-					let commandSplit = command.split(" ");
-					console.log(commandSplit[0], commandSplit.slice(1))
-					let runner = spawn(commandSplit[0], commandSplit.slice(1), {
+					// console.log("Entered", command)
+					// let commandSplit = command.split(" ");
+					// console.log(command[0], command.slice(1))
+					let runner = spawn(command[0], command.slice(1), {
 						shell: true,
 						cwd: process.cwd()
 					})
