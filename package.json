@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://gitlab.com/omarwaleed/watch-exec.git"
+    "url": "git+https://github.com/omarwaleed/watch-exec.git"
   },
   "keywords": [
     "fs",
@@ -25,9 +25,9 @@
   "author": "Omar Waleed <owezzat@gmail.com>",
   "license": "ISC",
   "bugs": {
-    "url": "https://gitlab.com/omarwaleed/watch-exec/issues"
+    "url": "https://github.com/omarwaleed/watch-exec/issues"
   },
-  "homepage": "https://gitlab.com/omarwaleed/watch-exec#README",
+  "homepage": "https://github.com/omarwaleed/watch-exec#README",
   "dependencies": {
     "colors": "^1.3.0",
     "commander": "^2.16.0"
