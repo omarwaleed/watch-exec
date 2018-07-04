@@ -6,7 +6,7 @@ const path = require('path');
 const program = require('commander');
 var colors = require('colors/safe');
 
-const version = '1.1.1';
+const version = '1.1.2';
 
 /**
  * 
