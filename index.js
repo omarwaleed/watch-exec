@@ -39,17 +39,18 @@ program
 	// })
 
 program
-	.command("run <command> [dir]")
+	.command("run <command...>")
 	.alias("r")
 	.description("Start watching and fire command on change of file")
-	// .option("-d, --dir <directory>", "Set directory to watch")
-	.action((command, dir)=>{
+	.option("-d, --dir <directory>", "Set directory to watch. Defaults to current working directory")
+	// .action((command, dir)=>{
+	.action((command, options)=>{
 		// console.log(options.dir)
 		// console.log(path.join(process.cwd(), options.dir))
 		let paused = false;
 		// const directory = options.dir? path.join(process.cwd(), options.dir) : undefined;
 		// console.log("DIR", dir);
-		const directory = dir? path.join(process.cwd(), dir) : process.cwd();
+		const directory = options.dir? path.join(process.cwd(), options.dir) : process.cwd();
 		// console.log("DIRECTORY", directory);
 		let directories = [];
 		pushDirectoryFiles(directory, directories);
