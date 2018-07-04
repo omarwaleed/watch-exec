@@ -1,5 +1,5 @@
 {
-  "name": "node-watch-exec",
+  "name": "fs-watch-exec",
   "version": "1.0.0",
   "description": "A filesystem watcher that executes a command when detecting change in given file/directory",
   "main": "index.js",
