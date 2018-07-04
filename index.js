@@ -45,11 +45,11 @@ program
 	// .option("-d, --dir <directory>", "Set directory to watch")
 	.action((command, dir)=>{
 		// console.log(options.dir)
-		// console.log(path.join(__dirname, options.dir))
+		// console.log(path.join(process.cwd(), options.dir))
 		let paused = false;
-		// const directory = options.dir? path.join(__dirname, options.dir) : undefined;
+		// const directory = options.dir? path.join(process.cwd(), options.dir) : undefined;
 		// console.log("DIR", dir);
-		const directory = dir? path.join(__dirname, dir) : process.cwd();
+		const directory = dir? path.join(process.cwd(), dir) : process.cwd();
 		// console.log("DIRECTORY", directory);
 		let directories = [];
 		pushDirectoryFiles(directory, directories);
@@ -64,7 +64,7 @@ program
 					console.log(commandSplit[0], commandSplit.slice(1))
 					let runner = spawn(commandSplit[0], commandSplit.slice(1), {
 						shell: true,
-						cwd: __dirname
+						cwd: process.cwd()
 					})
 					// console.log(runner.stdout.toString());
 					runner.stdout.pipe(process.stdout);
