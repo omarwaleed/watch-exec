@@ -25,6 +25,33 @@ const pushDirectoryFiles = function(pathEntry, directories){
 	}
 }
 
+/**
+ * 
+ * @param {Array} command
+ * 
+ */
+const runCommand = function(command){
+	// console.log("Entered", command)
+	// let commandSplit = command.split(" ");
+	// console.log(command[0], command.slice(1))
+	let runner = spawn(command[0], command.slice(1), {
+		shell: true,
+		cwd: process.cwd()
+	})
+	// console.log(runner.stdout.toString());
+	runner.stdout.pipe(process.stdout);
+	runner.stderr.pipe(process.stderr);
+	// runner.on('message', (message)=>{
+	// 	console.log("MSG:", message)
+	// })
+	// runner.on('close', (code)=>{
+	// 	console.log("Closing code", code);
+	// })
+	runner.on('error', (err)=>{
+		console.error(err);
+	})
+}
+
 program
 	.version(version)
 	.description("A tool that watches a given directory (defaults to current directory) and executes a command")
@@ -61,25 +88,7 @@ program
 				if(event === 'change' && !paused){
 					paused = true;
 					setTimeout(()=>paused = false, 100);
-					// console.log("Entered", command)
-					// let commandSplit = command.split(" ");
-					// console.log(command[0], command.slice(1))
-					let runner = spawn(command[0], command.slice(1), {
-						shell: true,
-						cwd: process.cwd()
-					})
-					// console.log(runner.stdout.toString());
-					runner.stdout.pipe(process.stdout);
-					runner.stderr.pipe(process.stderr);
-					// runner.on('message', (message)=>{
-					// 	console.log("MSG:", message)
-					// })
-					// runner.on('close', (code)=>{
-					// 	console.log("Closing code", code);
-					// })
-					runner.on('error', (err)=>{
-						console.error(err);
-					})
+					runCommand(command);
 				}
 			})
 		})
@@ -89,6 +98,7 @@ program
 
 		// console.log("Watching", directories);
 		console.log("Watching", directory);
+		runCommand(command);
 	})
 
 program.parse(process.argv);
