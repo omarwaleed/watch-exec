@@ -4,6 +4,7 @@ const fs = require('fs');
 const spawn = require('child_process').spawn;
 const path = require('path');
 const program = require('commander');
+var colors = require('colors/safe');
 
 const version = '1.0.0';
 
@@ -40,7 +41,8 @@ const runCommand = function(command){
 	})
 	// console.log(runner.stdout.toString());
 	runner.stdout.pipe(process.stdout);
-	runner.stderr.pipe(process.stderr);
+	// runner.stderr.pipe(process.stderr)
+	runner.stderr.on('data', (data)=>process.stderr.write(colors.red(data.toString())));
 	// runner.on('message', (message)=>{
 	// 	console.log("MSG:", message)
 	// })
@@ -97,7 +99,7 @@ program
 		// })
 
 		// console.log("Watching", directories);
-		console.log("Watching", directory);
+		console.log(colors.green("Watching", directory));
 		runCommand(command);
 	})
 
